@@ -1,2 +1,2 @@
 # PROYECT-2
-Conectar claude con Netlifly
+Conectar claude con Netlify
