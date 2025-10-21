@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Dario Leonel Gonzalez</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .header-content {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 30px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .photo-container {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid rgba(255,255,255,0.3);
+            overflow: hidden;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .photo-container:hover {
+            transform: scale(1.05);
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .header-info h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header-info .profesion {
+            font-size: 1.2em;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: background 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .contact-item i {
+            font-size: 1.1em;
+        }
+
+        .download-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            background: #f8f9fa;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+            animation: slideIn 0.6s ease-out backwards;
+        }
+
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+        .section:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .section-title {
+            color: #667eea;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .experience-item, .education-item {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .experience-item:hover, .education-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .experience-item h3, .education-item h3 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .experience-item .period, .education-item .period {
+            color: #667eea;
+            font-weight: bold;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 3px 10px rgba(102,126,234,0.3);
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(102,126,234,0.4);
+        }
+
+        .languages {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .language-item {
+            background: #f8f9fa;
+            padding: 12px 20px;
+            border-radius: 20px;
+            border: 2px solid #667eea;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .language-item:hover {
+            background: #667eea;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .hobbies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+        }
+
+        .hobby-item {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .hobby-item:hover {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-color: #764ba2;
+            transform: scale(1.05);
+        }
+
+        .hobby-item i {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .info-card strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                justify-items: center;
+            }
+
+            .header-info h1 {
+                font-size: 2em;
+            }
+
+            .download-btn {
+                position: static;
+                margin: 20px auto 0;
+            }
+
+            .contact-info {
+                justify-content: center;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .download-btn {
+                display: none;
+            }
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <button class="download-btn" onclick="downloadPDF()">
+                <i class="fas fa-download"></i> Descargar PDF
+            </button>
+            <div class="header-content">
+                <div class="photo-container">
+                    <img src="foto-perfil.jpg" alt="Foto de perfil" class="photo-placeholder" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>';">
+                </div>
+                <div class="header-info">
+                    <h1>Dario Leonel Gonzalez</h1>
+                    <p class="profesion">Amo de casa, Niñero y Rapero</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Ruiz de Montoya 930, CP 3300, Posadas, Misiones</span>
+                        </div>
+                        <a href="https://wa.me/5493764000000" class="contact-item" style="text-decoration: none; color: white;">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-briefcase"></i>
+                    Experiencia Laboral
+                </h2>
+                <div class="experience-item">
+                    <h3>Amo de casa, Niñero y Rapero</h3>
+                    <p class="period">2019 - Actualidad</p>
+                    <p>Gestión integral del hogar, cuidado de niños y desarrollo de actividades artísticas en el género musical rap.</p>
+                </div>
+                <div class="experience-item">
+                    <h3>Personal de Cantina</h3>
+                    <p class="period">2021 - 2022</p>
+                    <p>Atención al cliente, preparación de alimentos y bebidas, gestión de inventario.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-graduation-cap"></i>
+                    Educación y Capacitación
+                </h2>
+                <div class="education-item">
+                    <h3>Tecnicatura en Despacho Aduanero</h3>
+                    <p class="period">En curso</p>
+                    <p>Estudiante activo en la carrera técnica.</p>
+                </div>
+                <div class="education-item">
+                    <h3>Otras Capacitaciones</h3>
+                    <ul style="margin-top: 10px; margin-left: 20px;">
+                        <li>Curso de Inteligencia Artificial</li>
+                        <li>Orientación Secundaria en Economía</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-star"></i>
+                    Habilidades
+                </h2>
+                <div class="skills-grid">
+                    <div class="skill-item">Improvisación</div>
+                    <div class="skill-item">Trabajo bajo presión</div>
+                    <div class="skill-item">Escritura</div>
+                    <div class="skill-item">Cocina hogareña</div>
+                    <div class="skill-item">Planificación</div>
+                    <div class="skill-item">Cálculo</div>
+                    <div class="skill-item">Aprendizaje continuo</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-language"></i>
+                    Idiomas
+                </h2>
+                <div class="languages">
+                    <div class="language-item">🇦🇷 Español - Nativo</div>
+                    <div class="language-item">🇧🇷 Portugués - Básico</div>
+                    <div class="language-item">🇺🇸 Inglés - Intermedio</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-info-circle"></i>
+                    Información Adicional
+                </h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <strong><i class="fas fa-clock"></i> Disponibilidad Horaria</strong>
+                        <p>Lunes a Viernes desde las 16:00 hrs</p>
+                    </div>
+                    <div class="info-card">
+                        <strong><i class="fas fa-car"></i> Medio de Transporte</strong>
+                        <p>No disponible</p>
+                    </div>
+                    <div class="info-card">
+                        <strong><i class="fas fa-home"></i> Disponibilidad de Radicación</strong>
+                        <p>Sí, disponible para reubicación</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-heart"></i>
+                    Hobbies e Intereses
+                </h2>
+                <div class="hobbies-grid">
+                    <div class="hobby-item">
+                        <i class="fas fa-book"></i>
+                        <div>Lectura</div>
+                    </div>
+                    <div class="hobby-item">
+                        <i class="fas fa-music"></i>
+                        <div>Música</div>
+                    </div>
+                    <div class="hobby-item">
+                        <i class="fas fa-microphone"></i>
+                        <div>Freestyle</div>
+                    </div>
+                    <div class="hobby-item">
+                        <i class="fas fa-futbol"></i>
+                        <div>Fútbol</div>
+                    </div>
+                    <div class="hobby-item">
+                        <i class="fas fa-chess"></i>
+                        <div>Ajedrez</div>
+                    </div>
+                    <div class="hobby-item">
+                        <i class="fas fa-utensils"></i>
+                        <div>Cocinar</div>
+                    </div>
+                    <div class="hobby-item">
+                        <i class="fas fa-gamepad"></i>
+                        <div>Videojuegos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function downloadPDF() {
+            // Aquí debes reemplazar con la URL real de tu PDF en GitHub
+            const pdfUrl = 'cv-dario-gonzalez.pdf';
+            const link = document.createElement('a');
+            link.href = pdfUrl;
+            link.download = 'CV-Dario-Leonel-Gonzalez.pdf';
+            link.click();
+        }
+
+        // Animación de entrada para las secciones al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
